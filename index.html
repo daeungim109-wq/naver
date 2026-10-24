@@ -61,12 +61,6 @@
 </head>
 <body class="p-0 sm:p-4">
 
-<!-- Hidden File Inputs for Image Uploads -->
-<input type="file" id="upload-main" accept="image/*" class="hidden" onchange="previewImage(event, 'img-main')">
-<input type="file" id="upload-rel-1" accept="image/*" class="hidden" onchange="previewImage(event, 'img-rel-1', 'icon-rel-1')">
-<input type="file" id="upload-rel-2" accept="image/*" class="hidden" onchange="previewImage(event, 'img-rel-2', 'icon-rel-2')">
-<input type="file" id="upload-rel-3" accept="image/*" class="hidden" onchange="previewImage(event, 'img-rel-3', 'icon-rel-3')">
-
 <div class="phone-container">
     <!-- iOS Status Bar -->
     <div class="bg-white px-6 pt-3 pb-1 flex justify-between items-center text-xs font-semibold z-50 text-black shrink-0" id="status-bar">
@@ -321,14 +315,6 @@
                 </div>
             </div>
 
-            <!-- Notice Guide Alert for Photo Upload -->
-            <div class="bg-blue-50 border-b border-blue-100 px-3 py-2 flex items-center justify-between text-[11px] text-blue-700 font-medium">
-                <div class="flex items-center space-x-1.5">
-                    <i class="fa-solid fa-circle-info text-blue-500 text-xs"></i>
-                    <span>각 프로필 사진을 <b>클릭</b>하여 원하는 이미지를 등록하세요.</span>
-                </div>
-            </div>
-
             <!-- RESULT CONTENT FOR SONG EUNSEOK -->
             <div class="p-4 bg-white mt-1 shadow-xs">
                 <div class="flex justify-between items-start">
@@ -339,7 +325,7 @@
                     <button class="text-gray-400 p-1"><i class="fa-solid fa-ellipsis-vertical text-base"></i></button>
                 </div>
 
-                <!-- Profile Information Card with Refined Alignment -->
+                <!-- Profile Information Card -->
                 <div class="bg-[#F8FAFC] rounded-2xl p-4 mt-3 flex justify-between items-start border border-gray-100 shadow-2xs">
                     
                     <!-- Formatted Info List -->
@@ -374,16 +360,9 @@
                         </div>
                     </div>
 
-                    <!-- Main Profile Image Container (Clickable for Photo Upload) -->
-                    <div onclick="triggerUpload('upload-main')" class="w-[108px] h-[142px] rounded-2xl overflow-hidden flex-shrink-0 relative cursor-pointer border border-gray-200/80 shadow-xs group bg-gray-100">
-                        <img id="img-main" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400" class="w-full h-full object-cover transition group-hover:opacity-90" alt="송은석">
-                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold space-x-1">
-                            <i class="fa-solid fa-camera"></i>
-                            <span>수정</span>
-                        </div>
-                        <div class="absolute bottom-1 right-1 bg-black/60 text-white rounded-full p-1 text-[9px]">
-                            <i class="fa-solid fa-camera"></i>
-                        </div>
+                    <!-- Fixed Profile Image (postimg link) -->
+                    <div class="w-[108px] h-[142px] rounded-2xl overflow-hidden flex-shrink-0 relative border border-gray-200/80 shadow-xs bg-gray-100">
+                        <img src="https://i.postimg.cc/CBMPyBM8/image.jpg" class="w-full h-full object-cover" alt="송은석">
                     </div>
                 </div>
 
@@ -403,44 +382,31 @@
             <div class="p-4 bg-white mt-2 border-t border-gray-100 shadow-xs">
                 <div class="flex justify-between items-center mb-3">
                     <h3 class="text-sm font-bold text-gray-900 tracking-tight">관련 인물</h3>
-                    <span class="text-[11px] text-gray-400 font-normal">사진을 클릭해 교체</span>
                 </div>
 
                 <div class="grid grid-cols-3 gap-2.5">
                     <!-- Person 1: 송찰리 (황태자) -->
-                    <div onclick="triggerUpload('upload-rel-1')" class="flex flex-col items-center p-2.5 rounded-xl bg-gray-50/90 border border-gray-100 cursor-pointer hover:bg-gray-100/80 transition relative group">
+                    <div class="flex flex-col items-center p-2.5 rounded-xl bg-gray-50/90 border border-gray-100 relative">
                         <div class="w-20 h-24 bg-gray-200 rounded-xl overflow-hidden flex items-center justify-center text-gray-400 mb-2 relative border border-gray-200/60 shadow-2xs">
-                            <i id="icon-rel-1" class="fa-solid fa-user text-3xl"></i>
-                            <img id="img-rel-1" src="" class="w-full h-full object-cover hidden" alt="송찰리">
-                            <div class="absolute bottom-1 right-1 bg-black/50 text-white rounded-full w-4 h-4 flex items-center justify-center text-[8px]">
-                                <i class="fa-solid fa-camera"></i>
-                            </div>
+                            <i class="fa-solid fa-user text-3xl"></i>
                         </div>
                         <span class="text-xs font-bold text-gray-900">송찰리</span>
                         <span class="text-[10.5px] text-gray-500 font-medium mt-0.5">황태자</span>
                     </div>
 
                     <!-- Person 2: 송요한 (왕) -->
-                    <div onclick="triggerUpload('upload-rel-2')" class="flex flex-col items-center p-2.5 rounded-xl bg-gray-50/90 border border-gray-100 cursor-pointer hover:bg-gray-100/80 transition relative group">
+                    <div class="flex flex-col items-center p-2.5 rounded-xl bg-gray-50/90 border border-gray-100 relative">
                         <div class="w-20 h-24 bg-gray-200 rounded-xl overflow-hidden flex items-center justify-center text-gray-400 mb-2 relative border border-gray-200/60 shadow-2xs">
-                            <i id="icon-rel-2" class="fa-solid fa-user text-3xl"></i>
-                            <img id="img-rel-2" src="" class="w-full h-full object-cover hidden" alt="송요한">
-                            <div class="absolute bottom-1 right-1 bg-black/50 text-white rounded-full w-4 h-4 flex items-center justify-center text-[8px]">
-                                <i class="fa-solid fa-camera"></i>
-                            </div>
+                            <i class="fa-solid fa-user text-3xl"></i>
                         </div>
                         <span class="text-xs font-bold text-gray-900">송요한</span>
                         <span class="text-[10.5px] text-gray-500 font-medium mt-0.5">왕</span>
                     </div>
 
                     <!-- Person 3: 송도련 (막내왕자) -->
-                    <div onclick="triggerUpload('upload-rel-3')" class="flex flex-col items-center p-2.5 rounded-xl bg-gray-50/90 border border-gray-100 cursor-pointer hover:bg-gray-100/80 transition relative group">
+                    <div class="flex flex-col items-center p-2.5 rounded-xl bg-gray-50/90 border border-gray-100 relative">
                         <div class="w-20 h-24 bg-gray-200 rounded-xl overflow-hidden flex items-center justify-center text-gray-400 mb-2 relative border border-gray-200/60 shadow-2xs">
-                            <i id="icon-rel-3" class="fa-solid fa-user text-3xl"></i>
-                            <img id="img-rel-3" src="" class="w-full h-full object-cover hidden" alt="송도련">
-                            <div class="absolute bottom-1 right-1 bg-black/50 text-white rounded-full w-4 h-4 flex items-center justify-center text-[8px]">
-                                <i class="fa-solid fa-camera"></i>
-                            </div>
+                            <i class="fa-solid fa-user text-3xl"></i>
                         </div>
                         <span class="text-xs font-bold text-gray-900">송도련</span>
                         <span class="text-[10.5px] text-gray-500 font-medium mt-0.5">막내왕자</span>
@@ -513,29 +479,6 @@
             pageResult.classList.remove('hidden');
         } else {
             return false;
-        }
-    }
-
-    // IMAGE UPLOAD SYSTEM
-    function triggerUpload(inputId) {
-        document.getElementById(inputId).click();
-    }
-
-    function previewImage(event, imgTargetId, iconTargetId = null) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const imgElement = document.getElementById(imgTargetId);
-                imgElement.src = e.target.result;
-                imgElement.classList.remove('hidden');
-
-                if (iconTargetId) {
-                    const iconElement = document.getElementById(iconTargetId);
-                    if (iconElement) iconElement.classList.add('hidden');
-                }
-            };
-            reader.readAsDataURL(file);
         }
     }
 
